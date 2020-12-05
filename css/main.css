@@ -25,12 +25,9 @@ div.sticky {
 
 div#wrapper {
     display: flex;
-    width: 900px;
+    width: 880px;
+    padding: 48px 0px;
 }
-
-    div#wrapper > div {
-        padding: 48px 16px; /* top+bottom left+right */
-    }
 
 div#fadetop {
     height:64px;
@@ -66,7 +63,7 @@ div#fadebottom {
 
 div#sidebar {
     height: 256px;
-    width: 180px;
+    width: 200px;
     float: left;
 }
 
@@ -88,31 +85,54 @@ div#sidebar {
 
 div#main {
     height: auto;
-    width: 720px;
+    width: 680px;
     float: right;
 }
 
     div#main > div.mainitem {
         height: auto;
+        width: 100%;
         padding-bottom: 16px;
         overflow: hidden;
     }
 
     div#main > div.mainitem > img {
         display: inline-block;
-        height: 196px;
-        width: 196px;
+        height: 200px;
+        width: 200px;
         float: left;
-        border: 2px black solid;
+        border-radius: 8px;
     }
 
     div#main > div.mainitem > span {
         display: inline-block;
-        max-width: 436px;
+        max-width: 448px; /* 680 - 200 (img) - 2*16 (padding) */
         float: right;
         padding: 0px 16px;
     }
 
     div#main > div.mainitem > span > h4 {
         font-size: 20px;
-        padding: 6px 0px;
+        padding-top: 6px;
+    }
+
+    div#main > div.mainitem > span > p {
+        font-size: 17px;
+        text-align: justify;
+        padding-top: 6px;
+    }
+
+    div#main > div.mainitem > span > h5 {
+        font-size: 18px;
+        text-align: center;
+        padding-top: 6px;
+    }
+
+    div#main > div.mainitem a {
+        color: black;
+        text-decoration: underline;
+    }
+
+    div#main > div.mainitem a:hover {
+        color: #555;
+    }
