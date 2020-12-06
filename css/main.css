@@ -26,6 +26,9 @@ div.sticky {
 div#wrapper {
     display: flex;
     width: 880px;
+}
+
+div#wrapper > div {
     padding: 48px 0px;
 }
 
