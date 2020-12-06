@@ -88,6 +88,7 @@ div#sidebar {
 }
 
     div#sidebar > h1,h2,h3 {
+        color: black;
         font-family: 'Courier New', monospace;
     }
 
@@ -112,8 +113,13 @@ div#main {
     div#main > div.mainitem {
         height: auto;
         width: 100%;
-        padding-bottom: 16px;
+        margin-bottom: 20px;
         overflow: hidden;
+    }
+
+    div#main > div.mainitem:target {
+        background-color: #eeeaee;
+        box-shadow: 0 0 16px 16px #eeeaee;
     }
 
     div#main > div.mainitem img {
