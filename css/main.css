@@ -4,6 +4,17 @@
     padding: 0;
 }
 
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 48px; /* height of top padding */
+}
+
 body {
     font-family: Helvetica, sans-serif;
 }
@@ -19,6 +30,10 @@ div.sticky {
     top: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    text-rendering: optimizeLegibility;
+}
+
 
 
 
@@ -28,11 +43,12 @@ div#wrapper {
     width: 880px;
 }
 
-div#wrapper > div {
-    padding: 48px 0px;
-}
+    div#wrapper > div {
+        padding: 48px 0px;
+    }
 
 div#fadetop {
+    pointer-events: none;
     height:64px;
     width:100%;
     position:fixed;
@@ -47,6 +63,7 @@ div#fadetop {
 }
 
 div#fadebottom {
+    pointer-events: none;
     height:64px;
     width:100%;
     position:fixed;
@@ -99,7 +116,7 @@ div#main {
         overflow: hidden;
     }
 
-    div#main > div.mainitem > img {
+    div#main > div.mainitem img {
         display: inline-block;
         height: 200px;
         width: 200px;
@@ -108,34 +125,33 @@ div#main {
     }
 
     div#main > div.mainitem > span {
-        display: inline-block;
-        max-width: 448px; /* 680 - 200 (img) - 2*16 (padding) */
+        max-width: 480px; /* 680 - 200 (img) */
         float: right;
         padding: 0px 16px;
     }
 
-    div#main > div.mainitem > span > h4 {
+    div#main > div.mainitem > span a {
+        color: black;
+        text-decoration: underline;
+    }
+
+    div#main > div.mainitem > span a:hover {
+        color: #555;
+    }
+
+    div#main > div.mainitem > span h4 {
         font-size: 20px;
         padding-top: 6px;
     }
 
-    div#main > div.mainitem > span > p {
+    div#main > div.mainitem > span p {
         font-size: 17px;
         text-align: justify;
         padding-top: 6px;
     }
 
-    div#main > div.mainitem > span > h5 {
+    div#main > div.mainitem > span h5 {
         font-size: 18px;
         text-align: center;
         padding-top: 6px;
-    }
-
-    div#main > div.mainitem a {
-        color: black;
-        text-decoration: underline;
-    }
-
-    div#main > div.mainitem a:hover {
-        color: #555;
     }
