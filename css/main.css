@@ -10,6 +10,22 @@
   box-sizing: border-box;
 }
 
+
+
+
+
+.inFocus {
+    opacity: 1;
+}
+
+.outOfFocus {
+    opacity: 0.5;
+}
+
+
+
+
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 48px; /* height of top padding */
@@ -110,19 +126,18 @@ div#main {
     float: right;
 }
 
-    div#main > div.mainitem {
+    div#projects > div.projectitem {
         height: auto;
         width: 100%;
         margin-bottom: 20px;
         overflow: hidden;
+        
+        -webkit-transition: opacity 0.2s ease-in-out;
+        -moz-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
     }
 
-    div#main > div.mainitem:target {
-        background-color: #eeeaee;
-        box-shadow: 0 0 16px 16px #eeeaee;
-    }
-
-    div#main > div.mainitem img {
+    div#projects > div.projectitem img {
         display: inline-block;
         height: 200px;
         width: 200px;
@@ -130,33 +145,33 @@ div#main {
         border-radius: 8px;
     }
 
-    div#main > div.mainitem > span {
+    div#projects > div.projectitem > span {
         max-width: 480px; /* 680 - 200 (img) */
         float: right;
         padding: 0px 16px;
     }
 
-    div#main > div.mainitem > span a {
+    div#projects > div.projectitem > span a {
         color: black;
         text-decoration: underline;
     }
 
-    div#main > div.mainitem > span a:hover {
+    div#projects > div.projectitem > span a:hover {
         color: #555;
     }
 
-    div#main > div.mainitem > span h4 {
+    div#projects > div.projectitem > span h4 {
         font-size: 20px;
         padding-top: 6px;
     }
 
-    div#main > div.mainitem > span p {
+    div#projects > div.projectitem > span p {
         font-size: 17px;
         text-align: justify;
         padding-top: 6px;
     }
 
-    div#main > div.mainitem > span h5 {
+    div#projects > div.projectitem > span h5 {
         font-size: 18px;
         text-align: center;
         padding-top: 6px;
