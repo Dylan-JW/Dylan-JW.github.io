@@ -2,7 +2,12 @@ $( document ).ready(function() {
     
     var lastPos = 0; // track scroll position
     
-    // on loading page: focus on selected project
+    // on loading page
+    // give all projectitem the inFocus class
+    $( "div#projects" ).children("div.projectitem").each(function(i) {
+        focus($(this));
+    });
+    // if an anchor is in the URL already, focus on the selected project
     if(window.location.hash) {
         toggle_project_focus(location.hash.replace('#',''));
     }
@@ -23,14 +28,25 @@ $( document ).ready(function() {
 
 
 function toggle_project_focus(project_id) {
+    
+    
+
+    var targetAlreadyInFocus = $( "div#projects > div.projectitem#".concat(project_id) ).hasClass("inFocus");
     $( "div#projects" ).children("div.projectitem").each(function(i) {
         // ensure that targetted element is focused on
         if ( $(this).attr("id") == project_id ) {
             focus($(this));
-        // for the non-targetted elements: toggle their focus
         } else {
-            if ($(this).hasClass("outOfFocus")) {
-                focus($(this));
+            // if target is already in focus, either no elements are selected or it is the only one selected
+            // so toggle all others
+            if (targetAlreadyInFocus) {
+                if ($(this).hasClass("outOfFocus")) {
+                    focus($(this));
+                } else {
+                    defocus($(this));
+                }
+            // otherwise, another element must be selected
+            // so just defocus all others
             } else {
                 defocus($(this));
             }
