@@ -8,10 +8,10 @@ $( document ).ready(function() {
     }
     
     // manage focusing when clicking on a project's image
-    $( "div.projectitem > a > img" ).on("click", function(e) {
+    $( "div.projectitem > a" ).on("click", function(e) {
         e.preventDefault();
         lastPos = $(window).scrollTop();
-        toggle_project_focus($(this).parent().parent().attr("id"));
+        toggle_project_focus($(this).parent().attr("id"));
     });
     
     $(window).bind('hashchange',function(event){
