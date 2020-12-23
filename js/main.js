@@ -17,7 +17,6 @@ $( document ).ready(function() {
     $(window).bind('hashchange',function(event){
         var hash = location.hash.replace('#','');
         if(hash == '') $(window).scrollTop(lastPos);
-        alert(hash);
     });
 });
 
