@@ -99,9 +99,12 @@ div#fadebottom {
 
 
 div#sidebar {
-    height: 256px;
-    width: 200px;
+    height: 300px;
+    width: 160px;
     float: left;
+    text-align: center;
+    
+    margin-right: 40px; /* spacing between main column divs */
 }
 
     div#sidebar > h1,h2,h3 {
@@ -115,6 +118,24 @@ div#sidebar {
 
     div#sidebar > h2 {
         font-size: 17.5pt;
+    }
+
+    div#sidebar ul#links {
+        display: flex;
+        justify-content: center;
+    }
+
+    div#sidebar ul#links li {
+        display: inline-block;
+        padding: 0px 2px;
+    }
+
+    div#sidebar ul#links li:hover {
+        opacity: 0.6;
+    }
+
+    div#sidebar ul#links li img {
+        max-width: 24px;
     }
 
 
