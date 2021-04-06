@@ -4,7 +4,7 @@ $( document ).ready(function() {
     
     // on loading page
     // give all projectitem the inFocus class
-    $( "div#projects" ).children("div.projectitem").each(function(i) {
+    $( "div.projectitem" ).each(function(i) {
         focus($(this));
     });
     // if an anchor is in the URL already, focus on the selected project
@@ -31,8 +31,8 @@ function toggle_project_focus(project_id) {
     
     
 
-    var targetAlreadyInFocus = $( "div#projects > div.projectitem#".concat(project_id) ).hasClass("inFocus");
-    $( "div#projects" ).children("div.projectitem").each(function(i) {
+    var targetAlreadyInFocus = $( "div.projectitem#".concat(project_id) ).hasClass("inFocus");
+    $( "div.projectitem" ).each(function(i) {
         // ensure that targetted element is focused on
         if ( $(this).attr("id") == project_id ) {
             focus($(this));
@@ -55,7 +55,7 @@ function toggle_project_focus(project_id) {
     
     // update page anchor
     var allProjectElemsInFocus = true;
-    $( "div#projects" ).children("div.projectitem").each(function(i) {
+    $( "div.projectitem" ).each(function(i) {
         if ($(this).hasClass("outOfFocus")) {
             allProjectElemsInFocus = false;
             return false;

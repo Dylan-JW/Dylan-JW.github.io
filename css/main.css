@@ -47,6 +47,11 @@ div.sticky {
     top: 0;
 }
 
+div.column {
+    float: left;
+    width: 50%;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     text-rendering: optimizeLegibility;
 }
@@ -148,7 +153,21 @@ div#main {
     float: right;
 }
 
-    div#projects > div.projectitem {
+    div#projects-twocols {
+        padding-top: 2px;
+    }
+
+    div#projects-twocols > div:first-child {
+        padding-right: 22px; /* 16 + 6 */
+    }
+
+    div#projects-twocols > div:last-child {
+        padding-left: 6px;
+        padding-right: 16px;
+    }
+
+
+    div.projectitem {
         height: auto;
         width: 100%;
         margin-bottom: 20px;
@@ -159,42 +178,74 @@ div#main {
         transition: opacity 0.2s ease-in-out;
     }
 
-    div#projects > div.projectitem img {
+
+    div.projectitem img {
         display: inline-block;
-        height: 200px;
-        width: 200px;
         float: left;
         border-radius: 8px;
     }
 
-    div#projects > div.projectitem > span {
-        max-width: 480px; /* 680 - 200 (img) */
+    div#projects div.projectitem img {
+        height: 200px;
+        width: 200px;
+    }
+
+    div#projects-twocols div.projectitem img {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        margin-right: 10px;
+    }
+
+
+    div#projects div.projectitem span {
         float: right;
+        max-width: 480px; /* 680 - 200 (img) */
         padding: 0px 16px;
     }
 
-    div#projects > div.projectitem > span a {
+    div#projects-twocols div.projectitem span {
+        max-width: 230px; /* (680/2) - 100 (img) - (20/2) (column spacing) */
+        padding: 0px;
+    }
+
+
+    div.projectitem span a {
         color: black;
         text-decoration: underline;
     }
 
-    div#projects > div.projectitem > span a:hover {
+    div.projectitem span a:hover {
         color: #555;
     }
 
-    div#projects > div.projectitem > span h4 {
+
+    div#projects div.projectitem span h4 {
+        padding-top: 6px;
         font-size: 20px;
+    }
+
+    div#projects-twocols div.projectitem span h4 {
+        font-size: 18px;
+    }
+
+
+    div.projectitem span h5 {
+        text-align: center;
         padding-top: 6px;
     }
 
-    div#projects > div.projectitem > span p {
+    div#projects div.projectitem span h5 {
+        font-size: 18px;
+    }
+
+    div#projects-twocols div.projectitem span h5 {
+        font-size: 17px;
+    }
+
+
+    div.projectitem span p {
         font-size: 17px;
         text-align: justify;
-        padding-top: 6px;
-    }
-
-    div#projects > div.projectitem > span h5 {
-        font-size: 18px;
-        text-align: center;
         padding-top: 6px;
     }
