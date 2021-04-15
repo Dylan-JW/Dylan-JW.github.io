@@ -23,14 +23,38 @@ $( document ).ready(function() {
         var hash = location.hash.replace('#','');
         if(hash == '') $(window).scrollTop(lastPos);
     });
+    
+    
+    // lose focus when clicking on the body
+    $(window).on("click", function(e) {
+        var singleProjectInFocus = true;
+        $( "div.projectitem" ).each(function(i) {
+            if ($(this).hasClass("inFocus")) {
+                if (singleProjectInFocus == true) {
+                    singleProjectInFocus = $(this).attr("id");
+                } else {
+                    singleProjectInFocus = false;
+                }
+            }
+        });
+        if (singleProjectInFocus == false) {
+            // pass
+        } else if (singleProjectInFocus == true) {
+            // pass - this should never happen as at least 1 project should always be in focus
+        } else {
+            if (document.getElementById(singleProjectInFocus).contains(e.target)){
+                // pass - clicked inside of focused project
+            } else {
+                focus_all();
+            }
+        }
+    });
 });
 
 
 
 function toggle_project_focus(project_id) {
     
-    
-
     var targetAlreadyInFocus = $( "div.projectitem#".concat(project_id) ).hasClass("inFocus");
     $( "div.projectitem" ).each(function(i) {
         // ensure that targetted element is focused on
@@ -77,6 +101,12 @@ function focus(elm) {
     if ( !elm.hasClass("inFocus") ) {
         elm.addClass("inFocus");
     }
+}
+
+function focus_all() {
+    $( "div.projectitem" ).each(function(i) {
+        focus($(this));
+    });
 }
 
 function defocus(elm) {
