@@ -45,7 +45,7 @@ $( document ).ready(function() {
             if (document.getElementById(singleProjectInFocus).contains(e.target)){
                 // pass - clicked inside of focused project
             } else {
-                focus_all();
+                toggle_project_focus(singleProjectInFocus);
             }
         }
     });
@@ -101,12 +101,6 @@ function focus(elm) {
     if ( !elm.hasClass("inFocus") ) {
         elm.addClass("inFocus");
     }
-}
-
-function focus_all() {
-    $( "div.projectitem" ).each(function(i) {
-        focus($(this));
-    });
 }
 
 function defocus(elm) {
