@@ -1,7 +1,5 @@
 $( document ).ready(function() {
     
-    var lastPos = 0; // track scroll position
-    
     // on loading page
     // give all projectitem the inFocus class
     $( "div.projectitem" ).each(function(i) {
@@ -15,13 +13,7 @@ $( document ).ready(function() {
     // manage focusing when clicking on a project's image
     $( "div.projectitem > a" ).on("click", function(e) {
         e.preventDefault();
-        lastPos = $(window).scrollTop();
         toggle_project_focus($(this).parent().attr("id"));
-    });
-    
-    $(window).bind('hashchange',function(event){
-        var hash = location.hash.replace('#','');
-        if(hash == '') $(window).scrollTop(lastPos);
     });
     
     
@@ -86,7 +78,14 @@ function toggle_project_focus(project_id) {
         }
     });
     if (allProjectElemsInFocus) {
-        window.location.hash = "";
+        // clear hash using Lea Verou's method for changing hash without scrolling
+        // https://lea.verou.me/2011/05/change-url-hash-without-page-jump/
+        if(window.history.pushState) {
+            window.history.pushState(null, null, "#");
+        }
+        else {
+            window.location.hash = "#";
+        }
     } else {
         window.location.hash = "#".concat(project_id);
     }
