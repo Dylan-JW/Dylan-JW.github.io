@@ -153,6 +153,10 @@ div#main {
     float: right;
 }
 
+    div#projects > div:last-child > span h5 {
+        padding-bottom: 14px;
+    }
+
     div#projects-twocols {
         padding-top: 2px;
     }
